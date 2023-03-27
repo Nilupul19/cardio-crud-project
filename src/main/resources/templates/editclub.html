@@ -1,0 +1,64 @@
+<html lang="en" xmlns="http://thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>editclub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="d-flex flex-column h-100">
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                        <li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>
+                        <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                        <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
+                        <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Page Content-->
+<main class="flex-shrink-0">
+    <section class="py-5">
+        <div class="container">
+            <form action="#" th:action="@{/club/{id}/update(id=${clubDto.id})}" th:object="${clubDto}" class="row g-3" method="post">
+                <input type="hidden" th:field="*{id}">
+                <div class="col-md-6">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" th:field="*{title}" >
+                </div>
+                <div class="col-md-6">
+                    <label for="photoUrl" class="form-label">Photo Url</label>
+                    <input type="text" class="form-control" id="photoUrl" th:field="*{photoUrl}">
+                </div>
+                <div class="col-12">
+                    <label for="content" class="form-label">Content</label>
+                    <input type="text" class="form-control" id="content" th:field="*{content}">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>
